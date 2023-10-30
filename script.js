@@ -1,7 +1,7 @@
 "use script";
 
 //
-// NAVIGATION FADE OUT AND FADE IN EFFECT
+// NAVIGATION FADE OUT AND FADE IN EFFECT.
 //
 
 const navContainer = document.querySelector(".nav__container");
@@ -53,3 +53,54 @@ const sectionObserver = new IntersectionObserver((entries) => {
 sectionViewOut.forEach((sect) => {
   sectionObserver.observe(sect);
 });
+
+//
+// SMOOTH SCROLLING TO ALL FEATURES.
+//
+
+const navMap = {};
+
+document.querySelectorAll(".nav__item").forEach((tab) => {
+  const textContent = tab.textContent.trim();
+  if (textContent.split(" ").length === 1) {
+    const id = `#section__${textContent.toLowerCase()}`;
+    navMap[textContent] = id;
+  }
+});
+console.log(navMap);
+
+///////////////////
+
+navContainer.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const navItem = e.target.closest(".nav__item");
+  if (!navItem) return;
+
+  const textContent = navItem.textContent.trim();
+  const targetSection = navMap[textContent];
+
+  if (targetSection) {
+    document
+      .querySelector(targetSection)
+      .scrollIntoView({ behavior: "smooth" });
+  }
+});
+
+//
+// OPERATIONS BUTTONS ANIMATION EFFECT.
+//
+
+document
+  .querySelector(".operations__tab--container")
+  .addEventListener("click", function (e) {
+    e.preventDefault();
+    const clickedTab = e.target.closest(".operations__tab");
+    if (!clickedTab) return;
+
+    document.querySelectorAll(".operations__tab").forEach((tab) => {
+      tab.classList.remove("operations__tab--active");
+    });
+    clickedTab.classList.add("operations__tab--active");
+    return;
+  });
