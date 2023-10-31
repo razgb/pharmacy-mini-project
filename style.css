@@ -281,9 +281,9 @@ h4 {
   display: none;
   border-radius: 1rem;
   padding: 6.4rem 12rem;
-  /* margin-inline: 6.4rem; */
-
   box-shadow: 2px 4px 10px rgb(0, 0, 0, 0.05);
+
+  z-index: -5;
 }
 
 .operations__box--active {
