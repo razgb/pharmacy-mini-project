@@ -219,7 +219,7 @@ h4 {
 .feature__icon {
   display: flex;
   justify-content: center;
-  margin-bottom: 1.6rem;
+  margin-bottom: 2.4rem;
 }
 
 .feature__icon svg {
@@ -243,11 +243,14 @@ h4 {
 
 .feature__heading {
   margin-bottom: 1.2rem;
+  text-align: center;
 }
 
 .feature__text {
+  display: block;
   font-size: 1.6rem;
   line-height: 1.9;
+  padding-inline: 0.8rem;
 }
 
 /* ===================================== */

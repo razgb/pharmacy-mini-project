@@ -32,7 +32,16 @@ navContainer.addEventListener("mouseout", function (e) {
 // INTERSECTION OBSERVER TO REMOVE (VIEW-OUT) CLASS FOR SECTIONS.
 //
 
-// Element and options setup.
+// initialising last scroll position. The roof of the webpage.
+let lastScrollY = null;
+// Short delay so the page sets up.
+const initialiseLastScrollY = () => {
+  setTimeout(() => {
+    lastScrollY = window.scrollY;
+  }, 500);
+};
+initialiseLastScrollY();
+
 const sectionViewOut = document.querySelectorAll(".view-out");
 const sectionOptions = {
   root: null, // means viewport by default
@@ -40,19 +49,32 @@ const sectionOptions = {
   threshold: 0.2, // this means when 50% of the section shows.
 };
 
-// Instance of observer.
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.remove("view-out");
-      console.log("Observer 🔭");
-    }
+// If page doesn't reload at the beginning.
+if (window.scrollY !== 0) {
+  sectionViewOut.forEach((sect) => {
+    sect.classList.remove("view-out");
   });
-}, sectionOptions);
+} else {
+  // Instance of observer.
+  const sectionObserver = new IntersectionObserver((entries) => {
+    if (lastScrollY === null) return;
 
-sectionViewOut.forEach((sect) => {
-  sectionObserver.observe(sect);
-});
+    const currentScrollY = window.scrollY;
+
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && currentScrollY > lastScrollY) {
+        entry.target.classList.remove("view-out");
+        console.log("Observer 🔭: Scrolled downwards");
+      }
+    });
+
+    lastScrollY = currentScrollY; // updating. (analogy: reseting value of the roof)
+  }, sectionOptions);
+
+  sectionViewOut.forEach((sect) => {
+    sectionObserver.observe(sect);
+  });
+}
 
 //
 // SMOOTH SCROLLING TO ALL FEATURES.
@@ -67,7 +89,7 @@ document.querySelectorAll(".nav__item").forEach((tab) => {
     navMap[textContent] = id;
   }
 });
-console.log(navMap);
+// console.log(navMap);
 
 ///////////////////
 
