@@ -163,18 +163,25 @@
           <h3 class="operations__heading">Get straight to ordering</h3>
 
           <div class="operations__tab--container">
-            <button class="btn operations__tab operations__tab--active">
+            <button
+              class="btn operations__tab operations__tab--active"
+              data-number="1"
+            >
               01 Sign up
             </button>
-            <button class="btn operations__tab">02 Open dashboard</button>
-            <button class="btn operations__tab">03 Order & track</button>
+            <button class="btn operations__tab" data-number="2">
+              02 Open dashboard
+            </button>
+            <button class="btn operations__tab" data-number="3">
+              03 Order & track
+            </button>
           </div>
 
           <div class="operations__box--inner">
-            <div class="operations__btn--container">
+            <!-- <div class="operations__btn--container">
               <button class="operations__btn operations__btn--left"><</button>
-            </div>
-            <div class="operations__box operations__box--active">
+            </div> -->
+            <div class="operations__box operations__box--active" data-slide="1">
               <span
                 class="material-symbols-outlined operations__icon"
                 style="font-size: 48px"
@@ -189,50 +196,45 @@
                 preferences.</span
               >
             </div>
-            <div class="operations__btn--container">
-              <button class="operations__btn operations__btn--right">></button>
+
+            <div class="operations__box" data-slide="2">
+              <span
+                class="material-symbols-outlined operations__icon"
+                style="font-size: 48px"
+              >
+                alternate_email
+              </span>
+              <h4 class="operations__title">Personalized Health Dashboard</h4>
+              <span class="operations__text"
+                >After completing your profile, gain access to your Personalized
+                Health Dashboard. Here, you can upload prescriptions, view
+                medication history, and get personalized recommendations based
+                on your health needs.
+              </span>
             </div>
-          </div>
 
-          <div class="operations__box">
-            <span
-              class="material-symbols-outlined operations__icon"
-              style="font-size: 48px"
-            >
-              alternate_email
-            </span>
-            <h4 class="operations__title">Personalized Health Dashboard</h4>
-            <span class="operations__text"
-              >After completing your profile, gain access to your Personalized
-              Health Dashboard. Here, you can upload prescriptions, view
-              medication history, and get personalized recommendations based on
-              your health needs.
-            </span>
-          </div>
-
-          <div class="operations__box">
-            <span
-              class="material-symbols-outlined operations__icon"
-              style="font-size: 48px"
-            >
-              alternate_email
-            </span>
-            <h4 class="operations__title">Consult, Order, and Track</h4>
-            <span class="operations__text"
-              >Use the app to consult with expert pharmacists via a secure video
-              or chat feature. Once your consultation is complete, you can
-              easily order prescribed medicines or other health products from
-              the app. After placing an order, you can track it in real-time
-              until it is delivered to your doorstep.</span
-            >
+            <div class="operations__box" data-slide="3">
+              <span
+                class="material-symbols-outlined operations__icon"
+                style="font-size: 48px"
+              >
+                alternate_email
+              </span>
+              <h4 class="operations__title">Consult, Order, and Track</h4>
+              <span class="operations__text"
+                >Use the app to consult with expert pharmacists via a secure
+                video or chat feature. Once your consultation is complete, you
+                can easily order prescribed medicines or other health products
+                from the app. After placing an order, you can track it in
+                real-time until it is delivered to your doorstep.</span
+              >
+            </div>
+            <!-- <div class="operations__btn--container">
+              <button class="operations__btn operations__btn--right">></button>
+            </div> -->
           </div>
         </div>
       </section>
-
-      <!-- <section class="section" id="section__testimony">
-          <h3 class="testimony__heading">Hear what our customers have to say</h3>
-          <div class="testimony__box"></div>
-        </section> -->
     </div>
     <!-- Footer Section -->
     <footer id="section__newsletter" class="section__footer">

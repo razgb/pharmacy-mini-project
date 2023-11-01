@@ -124,11 +124,36 @@ const addOperationEffects = function () {
       clickedTab.classList.add("operations__tab--active");
       return;
     });
-
-  //
-  // OPERATIONS BOX LEFT/RIGHT CHANGE EFFECT:
-  //
 };
+//
+// OPERATIONS BOX LEFT/RIGHT CHANGE EFFECT:
+//
+
+document
+  .querySelector(".operations__tab--container")
+  .addEventListener("click", function (e) {
+    const tabClicked = e.target.closest(".operations__tab");
+    if (!tabClicked) return;
+
+    const operationsBox = document.querySelectorAll(".operations__box");
+
+    let goToSlide = tabClicked.dataset.number;
+    // operationsBox.forEach((box, i) => {
+    //   box.style.transform = `translateX(-${100 * (goToSlide - 1)}%)`;
+    //   box.classList.remove("operations__box--active");
+    // });
+    // console.log(operationsBox[goToSlide - 1]);
+    // operationsBox[goToSlide - 1].classList.add("operations__box--active");
+
+    operationsBox.forEach((box) => {
+      box.classList.remove("operations__box--active");
+    });
+    operationsBox[goToSlide - 1].classList.add("operations__box--active");
+  });
+
+//
+
+///////////////////////////////////////////////////////////////////
 
 const init = function () {
   navFadeAndScroll();
